@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Explorer - Flight Booking</title>
+    <link rel="stylesheet" href="flight.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Travel Explorer</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html">Login</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+    <section class="booking-hero">
+        <h1>Book Your Dream Vacation</h1>
+        <p>Fill out the form below to reserve your trip</p>
+    </section>
+
+    <section class="booking-option">
+        <ul>
+            <li><a href="hotel.html">Hotels</a></li>
+            <li><a href="flight.html" class="active">Flights</a></li>
+        </ul>
+    </section>
+
+    <div class="container">
+        <section class="search-section">
+            <h2>Find Your Perfect Flight</h2>
+            <form id="searchForm" class="search-form">
+                <div class="form-group">
+                    <label for="from">From</label>
+                    <input type="text" id="from" placeholder="City or Airport" required>
+                </div>
+                <div class="form-group">
+                    <label for="to">To</label>
+                    <input type="text" id="to" placeholder="City or Airport" required>
+                </div>
+                <div class="form-group">
+                    <label for="departure">Departure</label>
+                    <input type="date" id="departure" required>
+                </div>
+                <div class="form-group">
+                    <label for="return">Return (Optional)</label>
+                    <input type="date" id="return">
+                </div>
+                <div class="form-group">
+                    <label for="passengers">Passengers</label>
+                    <select id="passengers">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                        <option value="5">5 Passengers</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="class">Class</label>
+                    <select id="class">
+                        <option value="economy">Economy</option>
+                        <option value="business">Business</option>
+                        <option value="first">First Class</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-block">Search Flights</button>
+            </form>
+        </section>
+
+        <section id="flightsList" class="flights-list">
+            <h2>Available Flights</h2>
+            <div id="flightResults"></div>
+        </section>
+
+        <section id="bookingSection" class="booking-section">
+            <h2>Passenger Details</h2>
+            <form id="passengerForm" class="passenger-form">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="passport">Passport Number</label>
+                    <input type="text" id="passport" required>
+                </div>
+            </form>
+
+            <div class="payment-section">
+                <h2>Payment Method</h2>
+                <div class="payment-methods">
+                    <div class="payment-method" data-method="credit">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Credit Card">
+                        <div>Credit Card</div>
+                    </div>
+                    <div class="payment-method" data-method="paypal">
+                        <img src="images/paypal-icon-logo.png" alt="PayPal">
+                        <div>PayPal</div>
+                    </div>
+                    <div class="payment-method" data-method="bank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2489/2489759.png" alt="Bank Transfer">
+                        <div>Bank Transfer</div>
+                    </div>
+                </div>
+
+                <div id="creditDetails" class="payment-details">
+                    <div class="passenger-form">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">Name on Card</label>
+                            <input type="text" id="cardName" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="paypalDetails" class="payment-details">
+                    <p>You will be redirected to PayPal to complete your payment.</p>
+                </div>
+
+                <div id="bankDetails" class="payment-details">
+                    <p>Please transfer the amount to our bank account:</p>
+                    <p><strong>Bank:</strong> International Bank</p>
+                    <p><strong>Account:</strong> 1234567890</p>
+                    <p><strong>SWIFT:</strong> INTBANK123</p>
+                </div>
+
+                <button id="confirmPayment" class="btn btn-block">Confirm Payment</button>
+            </div>
+        </section>
+
+        <section id="confirmationSection" class="confirmation-section">
+            <div class="confirmation-icon">✓</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Thank you for booking with SkyTravel. Your flight has been successfully booked.</p>
+            
+            <div class="confirmation-details">
+                <div>
+                    <span>Booking Reference:</span>
+                    <span id="confirmationRef">ST78945612</span>
+                </div>
+                <div>
+                    <span>Flight:</span>
+                    <span id="confirmationFlight">Delhi to USA</span>
+                </div>
+                <div>
+                    <span>Departure:</span>
+                    <span id="confirmationDeparture">15 June 2023, 08:30 AM</span>
+                </div>
+                <div>
+                    <span>Passenger:</span>
+                    <span id="confirmationPassenger">John Doe</span>
+                </div>
+                <div>
+                    <span>Total Paid:</span>
+                    <span id="confirmationPrice">₹8500.00</span>
+                </div>
+            </div>
+
+            <button id="newBooking" class="btn">Make Another Booking</button>
+        </section>
+   
+    </div>
+         <!-- Footer Section -->
+         <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About Travel Explorer</h3>
+                    <p>We provide the best travel experiences around the world with competitive prices and excellent service.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> +91-7845678905</p>
+                    <p><i class="fas fa-phone"></i> +91-8260693021</p>
+                    <p><i class="fas fa-envelope"></i> travelexplorer509@gmail.com</p>    
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Travel Explorer. All rights reserved.</p>
+            </div>
+    
+        </footer>
+
+    <script src="script.js"></script>
+    <script src="flight.js">
+    </script>
+</body>
+</html>

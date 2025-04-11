@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Travel Explorer - Hotel Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="hotel.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+       
+    <header>
+        <div class="logo">Travel Explorer</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html">Login</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+        <section class="booking-hero">
+            <h1>Book Your Dream Vacation</h1>
+            <p>Fill out the form below to reserve your trip</p>
+        </section>
+
+        <section class="booking-option">
+            <ul>
+                <li><a href="hotel.html" class="active">Hotels</a></li>
+                <li><a href="flight.html">Flights</a></li>
+            </ul>
+        </section>
+
+
+    <div class="container">
+        <section class="search-section">
+            <h2>Find Your Perfect Stay</h2>
+            <form id="searchForm" class="search-form">
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" placeholder="City or Hotel" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkin">Check-in</label>
+                    <input type="date" id="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout">Check-out</label>
+                    <input type="date" id="checkout" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Guests</label>
+                    <select id="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5+ Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rooms">Rooms</label>
+                    <select id="rooms">
+                        <option value="1">1 Room</option>
+                        <option value="2">2 Rooms</option>
+                        <option value="3">3 Rooms</option>
+                        <option value="4">4 Rooms</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-block">Search Hotels</button>
+            </form>
+        </section>
+
+        <section id="hotelsList" class="hotels-list">
+            <h2>Available Hotels</h2>
+            <div id="hotelResults"></div>
+        </section>
+
+        <section id="bookingSection" class="booking-section">
+            <h2>Complete Your Booking</h2>
+            
+            <div class="booking-details">
+                <div class="booking-image">
+                    <img id="bookingHotelImage" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hotel">
+                </div>
+                <div>
+                    <h3 id="bookingHotelName">Grand Plaza Hotel</h3>
+                    <div class="hotel-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="bookingHotelLocation">New York, USA</span>
+                    </div>
+                    <div class="hotel-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span id="bookingDates">June 15 - June 20, 2023</span> • 
+                        <span id="bookingGuests">2 Guests</span> • 
+                        <span id="bookingRooms">1 Room</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="price">₹<span id="bookingPrice">450</span></div>
+                    <small>for 5 nights</small>
+                </div>
+            </div>
+
+            <h3>Guest Information</h3>
+            <form id="guestForm" class="guest-form">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests</label>
+                    <textarea id="specialRequests" rows="3"></textarea>
+                </div>
+            </form>
+
+            <div class="payment-section">
+                <h3>Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-method" data-method="credit">
+                        <img src="images/visa_logo.png" alt="Credit Card">
+                        <div>Credit Card</div>
+                    </div>
+                    <div class="payment-method" data-method="paypal">
+                        <img src="images/paypal-icon-logo.png" alt="PayPal">
+                        <div>PayPal</div>
+                    </div>
+                    <div class="payment-method" data-method="bank">
+                        <img src="images/bank_trasanction_logo.png" alt="Bank Transfer">
+                        <div>Bank Transfer</div>
+                    </div>
+                </div>
+
+                <div id="creditDetails" class="payment-details">
+                    <div class="guest-form">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">Name on Card</label>
+                            <input type="text" id="cardName" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="paypalDetails" class="payment-details">
+                    <p>You will be redirected to PayPal to complete your payment.</p>
+                </div>
+
+                <div id="bankDetails" class="payment-details">
+                    <p>Please transfer the amount to our bank account:</p>
+                    <p><strong>Bank:</strong> International Bank</p>
+                    <p><strong>Account:</strong> 1234567890</p>
+                    <p><strong>SWIFT:</strong> INTBANK123</p>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="terms" required>
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+
+                <button id="confirmBooking" class="btn btn-block">Confirm Booking</button>
+                <button id="backToHotels" class="btn btn-block btn-outline">Back to Hotels</button>
+            </div>
+        </section>
+
+        <section id="confirmationSection" class="confirmation-section">
+            <div class="confirmation-icon">✓</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Thank you for booking with LuxStay. Your reservation has been successfully confirmed.</p>
+            
+            <div class="confirmation-details">
+                <div>+
+                    <span>Confirmation Number:</span>
+                    <span id="confirmationRef">LS78945612</span>
+                </div>
+                <div>
+                    <span>Hotel:</span>
+                    <span id="confirmationHotel">Grand Plaza Hotel</span>
+                </div>
+                <div>
+                    <span>Location:</span>
+                    <span id="confirmationLocation">New York, USA</span>
+                </div>
+                <div>
+                    <span>Dates:</span>
+                    <span id="confirmationDates">June 15 - June 20, 2023</span>
+                </div>
+                <div>
+                    <span>Guest:</span>
+                    <span id="confirmationGuest">John Doe</span>
+                </div>
+                <div>
+                    <span>Total Paid:</span>
+                    <span id="confirmationPrice">₹4500.00</span>
+                </div>
+            </div>
+
+            <button id="newBooking" class="btn">Make Another Booking</button>
+        </section>
+    </div>
+       <!-- Footer Section -->
+       <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Travel Explorer</h3>
+                <p>We provide the best travel experiences around the world with competitive prices and excellent service.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91-7845678905</p>
+                <p><i class="fas fa-phone"></i> +91-8260693021</p>
+                <p><i class="fas fa-envelope"></i> travelexplorer509@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Travel Explorer. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script src="hotel.js"></script>
+</body>
+</html>
